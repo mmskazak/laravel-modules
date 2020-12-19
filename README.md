@@ -12,3 +12,5 @@ Lightweight assistant for implementing modular architecture in Laravel.
    ],
 ],
 ```
+In that example about will be loaded all routes from `app/Modules/Front/Post/Routes` folder.
+If you have `web.php` in that folder with `\Route::get('/', 'PostController@index');` it will route to `app/Modules/Front/Post/Controllers/PostController`
