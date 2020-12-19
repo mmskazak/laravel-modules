@@ -1,0 +1,24 @@
+{
+    "name": "sarvarov/laravel-modules",
+    "description": "Lightweight assistant for implementing modular architecture in Laravel.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman Sarvarov",
+            "email": "roman.sarvarov@gmail.com"
+        }
+    ],
+	"autoload": {
+        "psr-4": {
+            "Sarvarov\\LaravelModules\\": "src/"
+        }
+    },
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Sarvarov\\LaravelModules\\ModuleServiceProdiver"
+			]
+		}
+	},
+	"minimum-stability": "dev"
+}
