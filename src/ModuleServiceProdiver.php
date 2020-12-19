@@ -120,8 +120,28 @@ class ModuleServiceProdiver extends ServiceProvider
 
         foreach (glob("$routesPath\\*.php") as $route) {
             Route::namespace($namespace . '\\Controllers')
-                ->prefix($params['prefix'] ?? null)
+                ->prefix(
+                    $params['prefix'] ?? $this->guessPrefixName($namespace)
+                )
                 ->group($route);
         }
+
+        return true;
+    }
+
+    /**
+     * Guess prefix name.
+     *
+     * For example:
+     * App\Modules\Front\BlogPost -> blog-posts
+     *
+     * @param $namespace
+     * @return string
+     */
+    protected function guessPrefixName($namespace)
+    {
+        return \Str::snake(
+            \Str::plural(class_basename($namespace)), '-'
+        );
     }
 }
