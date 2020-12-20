@@ -136,6 +136,7 @@ class ModuleServiceProdiver extends ServiceProvider
 
         // Translations
         $this->loadTranslationsFrom("$path/Translations", $prefix);
+        $this->loadJsonTranslationsFrom("$path/Translations");
 
         return true;
     }
