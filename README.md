@@ -1,6 +1,18 @@
 # laravel-modules
 Lightweight assistant for implementing modular architecture in Laravel.
 
+```
+app
+- Modules
+-- Frontend
+--- Controllers
+--- Migrations
+--- Translations
+--- Views
+--- Routes
+--- Models
+```
+
 ## Installation
 1. `composer require sarvarov/laravel-modules`
 2. php artisan `vendor:publish --provider="Sarvarov\LaravelModules\ModuleServiceProvider"`.
