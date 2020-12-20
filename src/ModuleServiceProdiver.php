@@ -96,7 +96,7 @@ class ModuleServiceProdiver extends ServiceProvider
             $moduleNamespace = "$modulesNamespace\\" . $modulePath->implode('\\');
 
             // Initialize module routes.
-            $this->bootModuleRoutes(
+            $this->bootModule(
                 $fullModulePath, $moduleNamespace, $moduleParams
             );
         }
@@ -110,21 +110,32 @@ class ModuleServiceProdiver extends ServiceProvider
      * @param array|string $params
      * @return false
      */
-    protected function bootModuleRoutes($path, $namespace, $params)
+    protected function bootModule($path, $namespace, $params)
     {
         if (! $routes = data_get($params, 'routes', [])) {
             return false;
         }
 
+        $prefix = $params['prefix'] ?? $this->guessPrefixName($namespace);
+
+        // Routes
         $routesPath = $path . '\\Routes';
 
         foreach ($routes as $route) {
+
             Route::namespace($namespace . '\\Controllers')
-                ->prefix(
-                    $params['prefix'] ?? $this->guessPrefixName($namespace)
-                )
+                ->prefix($prefix)
                 ->group("$routesPath\\$route.php");
         }
+
+        // Views
+        $this->loadViewsFrom("$path/Views", $prefix);
+
+        // Migrations
+        $this->loadMigrationsFrom("$path/Migrations");
+
+        // Translations
+        $this->loadTranslationsFrom("$path/Translations", $prefix);
 
         return true;
     }
