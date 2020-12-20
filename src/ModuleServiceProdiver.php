@@ -56,13 +56,13 @@ class ModuleServiceProdiver extends ServiceProvider
     /**
      * Returns module path.
      *
-     * @param int|string $moduleKey
-     * @param string|array $moduleParams
+     * @param int|string $key
+     * @param string|array $params
      * @return Collection
      */
-    protected function getModulePath($moduleKey, $moduleParams)
+    protected function getModulePath($key, $params)
     {
-        $rawModulePath = is_array($moduleParams) ? $moduleKey : $moduleParams;
+        $rawModulePath = is_array($params) ? $key : $params;
 
         return collect(
             explode('.', str_replace('/', '.', $rawModulePath))
