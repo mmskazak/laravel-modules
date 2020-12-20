@@ -112,18 +112,18 @@ class ModuleServiceProdiver extends ServiceProvider
      */
     protected function bootModuleRoutes($path, $namespace, $params)
     {
-        if (! data_get($params, 'boot.routes', true)
-            || ! is_dir($routesPath = $path . '\\Routes')
-        ) {
+        if (! $routes = data_get($params, 'routes', [])) {
             return false;
         }
 
-        foreach (glob("$routesPath\\*.php") as $route) {
+        $routesPath = $path . '\\Routes';
+
+        foreach ($routes as $route) {
             Route::namespace($namespace . '\\Controllers')
                 ->prefix(
                     $params['prefix'] ?? $this->guessPrefixName($namespace)
                 )
-                ->group($route);
+                ->group("$routesPath\\$route.php");
         }
 
         return true;
