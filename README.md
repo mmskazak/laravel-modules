@@ -25,4 +25,4 @@ app
     ],
 ],
 ```
-In example above it will load all routes from `app/Modules/Frontend/Page/Routes` folder. `\Route::get('/', 'PageController@index');` will route to `app/Modules/Frontend/Page/Controllers/PageController`.
+In example above it will load routes from `app/Modules/Frontend/Page/Routes/web.php`. `\Route::get('/', 'PageController@index');` will route to `app/Modules/Frontend/Page/Controllers/PageController`.
