@@ -121,12 +121,12 @@ class ModuleServiceProdiver extends ServiceProvider
         $prefix = $params['prefix'] ?? $this->guessPrefixName($namespace);
 
         // Routes
-        $routesPath = $path . '\\Routes';
+        $routesPath = $path . '/Routes';
 
         foreach ($routes as $route) {
             Route::namespace($namespace . '\\Controllers')
                 ->prefix($prefix)
-                ->group("$routesPath\\$route.php");
+                ->group("$routesPath/$route.php");
         }
 
         // Views
