@@ -8,17 +8,17 @@
             "email": "roman.sarvarov@gmail.com"
         }
     ],
-	"autoload": {
+        "autoload": {
         "psr-4": {
             "Sarvarov\\LaravelModules\\": "src/"
         }
     },
-	"extra": {
-		"laravel": {
-			"providers": [
-				"Sarvarov\\LaravelModules\\ModuleServiceProdiver"
-			]
-		}
-	},
-	"minimum-stability": "dev"
+        "extra": {
+        "laravel": {
+            "providers": [
+                "Sarvarov\\LaravelModules\\ModuleServiceProdiver"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
 }
