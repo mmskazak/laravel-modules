@@ -125,7 +125,7 @@ class ModuleServiceProdiver extends ServiceProvider
 
         foreach ($routes as $route) {
             Route::namespace($namespace . '\\Controllers')
-                ->prefix($this->forceRoutePrefix($route) ? $prefix : null)
+                ->prefix($this->forceRoutePrefix($route) ? $route : null)
                 ->group("$routesPath/$route.php");
         }
 
@@ -150,7 +150,7 @@ class ModuleServiceProdiver extends ServiceProvider
      */
     protected function forceRoutePrefix($route)
     {
-        return $route === 'api' && config('force_api_prefix', false);
+        return $route === 'api' && config('modules.force_api_prefix', false);
     }
 
     /**
