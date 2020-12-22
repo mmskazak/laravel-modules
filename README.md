@@ -7,7 +7,7 @@ app
 - - Frontend
 - - - Page
 - - - - Controllers
-- - - - - Migrations
+- - - - Migrations
 - - - - Translations
 - - - - Views
 - - - - Routes
