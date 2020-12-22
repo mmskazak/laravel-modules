@@ -5,12 +5,13 @@ Lightweight assistant for implementing modular architecture in Laravel.
 app
 - Modules
 - - Frontend
-- - - Controllers
-- - - Migrations
-- - - Translations
-- - - Views
-- - - Routes
-- - - Models
+- - - Page
+- - - - Controllers
+- - - - - Migrations
+- - - - Translations
+- - - - Views
+- - - - Routes
+- - - - Models
 ```
 
 ## Installation
