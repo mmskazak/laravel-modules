@@ -124,7 +124,6 @@ class ModuleServiceProdiver extends ServiceProvider
         $routesPath = $path . '\\Routes';
 
         foreach ($routes as $route) {
-
             Route::namespace($namespace . '\\Controllers')
                 ->prefix($prefix)
                 ->group("$routesPath\\$route.php");
