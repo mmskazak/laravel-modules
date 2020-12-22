@@ -14,5 +14,5 @@ return [
     // Modules path & namespace options.
     'path' => '/app/Modules',
     'namespace' => 'App\Modules',
-    'force_api_prefix' => true,
+    'force_route_prefix' => ['api'],
 ];
