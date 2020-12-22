@@ -9,6 +9,13 @@ use Illuminate\Support\ServiceProvider;
 class ModuleServiceProdiver extends ServiceProvider
 {
     /**
+     * Should force route prefix?
+     *
+     * @var bool|array
+     */
+    protected $forceRoutePrefix;
+
+    /**
      * Bootstrap services.
      *
      * @return void
@@ -125,7 +132,7 @@ class ModuleServiceProdiver extends ServiceProvider
 
         foreach ($routes as $route) {
             Route::namespace($namespace . '\\Controllers')
-                ->prefix($this->forceRoutePrefix($route) ? $prefix : null)
+                ->prefix($this->forceRoutePrefix($route) ? $route : null)
                 ->group("$routesPath/$route.php");
         }
 
@@ -150,10 +157,12 @@ class ModuleServiceProdiver extends ServiceProvider
      */
     protected function forceRoutePrefix($route)
     {
-        $forceRoutePrefix = config('force_route_prefix', false);
+        $this->forceRoutePrefix = $this->forceRoutePrefix ?? config(
+            'modules.force_route_prefix', false
+        );
 
-        return $forceRoutePrefix == true
-            || is_array($forceRoutePrefix) && in_array($route, $forceRoutePrefix);
+        return $this->forceRoutePrefix == true
+            || is_array($this->forceRoutePrefix) && in_array($route, $this->forceRoutePrefix);
     }
 
     /**
