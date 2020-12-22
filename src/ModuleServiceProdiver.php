@@ -40,7 +40,9 @@ class ModuleServiceProdiver extends ServiceProvider
      */
     protected function getModulesPath()
     {
-        return rtrim(base_path(config('modules.path')), '/');
+        return base_path(
+            str_replace('\\', '/', trim(config('modules.path'), '/'))
+        );
     }
 
     /**
@@ -84,7 +86,7 @@ class ModuleServiceProdiver extends ServiceProvider
             // Get module path.
             $modulePath = $this->getModulePath($moduleKey, $moduleParams);
 
-            $fullModulePath = "$modulesPath\\" . $modulePath->implode('\\');
+            $fullModulePath = "$modulesPath/" . $modulePath->implode('/');
 
             throw_unless(
                 is_dir($fullModulePath),
@@ -122,6 +124,7 @@ class ModuleServiceProdiver extends ServiceProvider
         $routesPath = $path . '\\Routes';
 
         foreach ($routes as $route) {
+
             Route::namespace($namespace . '\\Controllers')
                 ->prefix($prefix)
                 ->group("$routesPath\\$route.php");
