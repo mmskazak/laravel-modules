@@ -142,7 +142,7 @@ class ModuleServiceProdiver extends ServiceProvider
      * Guess prefix name.
      *
      * For example:
-     * App\Modules\Front\BlogPost -> blog-posts
+     * App\Modules\Front\BlogPost -> blog-post
      *
      * @param $namespace
      * @return string
