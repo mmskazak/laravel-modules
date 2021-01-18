@@ -149,6 +149,8 @@ class ModuleServiceProdiver extends ServiceProvider
      */
     protected function guessPrefixName($namespace)
     {
-        return \Str::snake(class_basename($namespace), '-');
+        return \Str::snake(
+            class_basename($namespace), '-'
+        );
     }
 }
