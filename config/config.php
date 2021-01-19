@@ -3,8 +3,8 @@
 return [
     // List of modules to initialize.
     'list' => [
-        // 'Frontend/Page' => [
-        //     'prefix' => 'pages',
+        // 'BlogPost' => [
+        //     'prefix' => 'blog-post',
         //     'routes' => ['web'],
         // ],
 
