@@ -19,8 +19,8 @@ app
 3. In `config/modules.php` add your created modules in `list` parameter, for example:
 ```
 'list' => [
-    'Frontend/Page' => [
-        'prefix' => 'page',
+    'BlogPost' => [
+        'prefix' => 'blog-post',
         'routes' => ['web'],
     ],
 ],
