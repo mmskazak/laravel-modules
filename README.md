@@ -20,7 +20,7 @@ app
 ```
 'list' => [
     'Frontend/Page' => [
-        'prefix' => 'pages',
+        'prefix' => 'page',
         'routes' => ['web'],
     ],
 ],
