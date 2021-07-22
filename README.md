@@ -26,3 +26,16 @@ app
 ],
 ```
 In example above it will load routes from `app/Modules/Frontend/Page/Routes/web.php`. `\Route::get('/', 'PageController@index');` will route to `app/Modules/Frontend/Page/Controllers/PageController`.
+
+
+## Feature
+1. Добавить возможность указывать Middleware для файлов(ключа) 'routes'  
+Пример:  
+    ```
+   'routes' => [
+   //значением в массиве указываются Middleware
+                'web' => [web],  
+                'api' => [api],
+                'something' => [api, somethind]
+               ],
+   ```            
