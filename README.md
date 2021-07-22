@@ -3,8 +3,8 @@ Lightweight assistant for implementing modular architecture in Laravel.
 
 ```
 app
-- Modules
-- - Page
+- DirModules
+- - ModuleExample
 - - - Controllers
 - - - Migrations
 - - - Translations
