@@ -1,7 +1,16 @@
 <?php
 
 return [
-    // List of modules to initialize.
+    
+    // Необходимо указать путь до Вашей папки моулей
+    // к примеру это может быть /app/Modules или /app/Pokemons
+    'path' => '/app/Modules',
+    
+    //Так же необходимо указать неймспейс для Вашей папки модулей
+    'namespace' => 'App\Modules',
+    
+    //Здесь вы указываете ваши модули и их настройки
+    //Дирректории для модулей необходимо создавать самостоятельно 
     'list' => [
         // 'BlogPost' => [
         //     'prefix' => 'blog-post',
@@ -9,9 +18,5 @@ return [
         // ],
 
         // ...
-    ],
-
-    // Modules path & namespace options.
-    'path' => '/app/Modules',
-    'namespace' => 'App\Modules',
+    ]
 ];
